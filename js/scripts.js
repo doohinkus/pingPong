@@ -7,7 +7,7 @@ var pigLatin = function (words){
   var consonants = "";
 
   if ((words.search(/[^a-zA-Z\s]+/) != -1)) {
-    return "Enter only alphebat letters.";
+    return false;
   }else if (vowels.indexOf(firstLetter) != -1){
     if(firstLetter === "y"){
       letters.splice(0, 1);
@@ -52,6 +52,7 @@ var pigLatin = function (words){
     var translation = [];
     var words = sentence.split(" ");
     console.log(words);
+
     words.forEach(function (word){
       translation.push(pigLatin(word));
 
@@ -68,7 +69,12 @@ $(document).ready(function(){
     $("form").submit(function (event){
       var input = $("#input").val();
       console.log(pigLatin(input));
-      $(".output").text(translateSentence(input));
+      if (pigLatin(input) != false){
+        $(".output").text(translateSentence(input));
+      }else{
+        $(".output").text("Please do not enter numbers or weird punctuation.")
+      }
+
       event.preventDefault();
     });
 
