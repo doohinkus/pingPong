@@ -5,7 +5,6 @@ var pigLatin = function (words){
   var firstLetter = letters[0];
   var secondLetter = letters[1];
   var consonants = "";
-  console.log(letters)
 
   if ((words.search(/[^a-zA-Z\s]+/) != -1)) {
     return "Enter only alphebat letters.";
@@ -24,7 +23,7 @@ var pigLatin = function (words){
      letters.splice(0, 2);
      letters.push("quay");
      return letters.join("");
-     console.log("q!!!!", letters);
+
    }else {
     //regular consonants
       for (var i=0; i < letters.length; i++){
@@ -48,13 +47,28 @@ var pigLatin = function (words){
     }
   }
 
+  var translateSentence = function (sentence){
+  // take sentence apply piglatin function to each word
+    var translation = [];
+    var words = sentence.split(" ");
+    console.log(words);
+    words.forEach(function (word){
+      translation.push(pigLatin(word));
+
+    });
+    console.log(translation);
+    return translation.join(" ");
+
+
+  }
+
 
 $(document).ready(function(){
 
     $("form").submit(function (event){
       var input = $("#input").val();
-      console.log(pigLatin(input))
-      $(".output").text(pigLatin(input));
+      console.log(pigLatin(input));
+      $(".output").text(translateSentence(input));
       event.preventDefault();
     });
 
