@@ -2,8 +2,7 @@ var pigLatin = function (words){
   var letters = words.split("");
   var vowels = ["a", "e", "i", "o", "u"];
   var firstletter = letters[0];
-  var shiftedLetters = "";
-  var firstConsonants = []
+  var consonants = "";
   console.log(letters)
 
   if (words.search(/[^a-zA-Z\s]+/) != -1) {
@@ -12,29 +11,27 @@ var pigLatin = function (words){
      letters.push("ay");
      return letters.join("");
   } else {
-    //--old code---//
-    //   for(var i = 0; i <= letters.length-1; i++) {
-    //     for(var v = 0; v <= vowels.length-1; v++) {
-    //       if (letters[i] === vowels[v]) {
-    //        var cluster = letters.slice(0, i).join("");
-    //         console.log(cluster, " ")
-    //         break
-    //       }
-    //     }
-    //   }
-    //
-    //--new code -- //
-    for (var i=0; i < letters.length; i++){
-      if (vowels.indexOf(letters[i]) == -1){
-        console.log(letters[i]);
-        firstConsonants.shift(letters[i]);
-        console.log(firstConsonants)
-      }else {
-        break;
+    //regular consonants
+      for (var i=0; i < letters.length; i++){
+          if (vowels.indexOf(letters[i]) == -1){
+            //collect consonants
+            consonants += letters[i];
+
+          }else {
+            break;
+          }
+
       }
-    };
+      //remove consonants from letters array
+      //remove letters from zero position to length of consonants
+      var removedLetters = letters.splice(0, consonants.length);
+      //append letters with 'ay' to letters array
+      letters.push(consonants + "ay");
+      return letters.join("");
+      // console.log(result);
+      // console.log(consonants, " ", removedLetters, " ", letters);
     }
-  };
+  }
 
 
 $(document).ready(function(){
@@ -42,7 +39,7 @@ $(document).ready(function(){
     $("form").submit(function (event){
       var input = $("#input").val();
       console.log(pigLatin(input))
-
+      $(".output").text(pigLatin(input));
       event.preventDefault();
     });
 
