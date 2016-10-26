@@ -2,11 +2,21 @@ var pigLatin = function (words){
   // words.toLowerCase();
   var letters = words.split("");
   var vowels = ["a", "e", "i", "o", "u", "y"];
+  var endPunctuation = ["!", "?", "."];
   var firstLetter = letters[0];
   var secondLetter = letters[1];
   var consonants = "";
+  var endPunctuationMark = "."
 
-  if ((words.search(/[^a-zA-Z\s]+/) != -1)) {
+  //remove punctuation
+
+  if (endPunctuation.indexOf(letters[letters.length-1])!= -1){
+    endPunctuationMark = letters[letters.length-1];
+    letters.splice(letters.length-1, 1);
+    console.log("end punctuation", letters)
+  }
+
+  if ((words.search(/[^a-zA-Z\.\!\?\s]+/) != -1)) {
     return false;
   }else if (vowels.indexOf(firstLetter) != -1){
     if(firstLetter === "y"){
@@ -36,12 +46,16 @@ var pigLatin = function (words){
           }
 
       }
+      //allow ending punctuation
+      //remove punction and place at the ending
+
       //remove consonants from letters array
       //remove letters from zero position to length of consonants
       var removedLetters = letters.splice(0, consonants.length);
       //append letters with 'ay' to letters array
       letters.push(consonants + "ay");
-      return letters.join("");
+      translatedSentence = letters.join("");
+      return translatedSentence + endPunctuationMark;
       // console.log(result);
       // console.log(consonants, " ", removedLetters, " ", letters);
     }
