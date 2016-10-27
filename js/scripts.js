@@ -6,7 +6,7 @@ var pigLatin = function (words){
   var firstLetter = letters[0];
   var secondLetter = letters[1];
   var consonants = "";
-  var endPunctuationMark = "."
+  var endPunctuationMark = "";
 
   //remove punctuation
 
