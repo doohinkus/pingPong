@@ -13,6 +13,7 @@ _A web application that takes a number from a user and returns a range of number
 
 ## Specifications:
 
+* _Program only accepts numbers between 1 and 3999_.
 * _Program can take the user's number and output a list that counts up to that number._
 * _Program can take the user's number and output a list that counts up to that number and replaces numbers divisible by 3 with the word "ping"._
 * _Program can take the user's number and output a list that counts up to that number and replaces numbers divisible by 5 with the word "pong"._
