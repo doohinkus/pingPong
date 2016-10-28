@@ -1,9 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 body{
-  /*background-image:url("../img/big-pig.jpg");*/
+  background-image:url("../img/pingPongBackground.jpg");
   background-repeat: no-repeat;
-  /*background-position: 50% 100px;*/
   background-color: #99CC00;
   font-size: 14pt;
   color: #FFF;
