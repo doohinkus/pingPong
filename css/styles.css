@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Boogaloo');
+
 body{
-  background-image:url("../img/big-pig.jpg");
+  /*background-image:url("../img/big-pig.jpg");*/
   background-repeat: no-repeat;
-  background-position: 50% 100px;
-  background-color: #F8C1D4;
-  font-family: 'Boogaloo', cursive;
+  /*background-position: 50% 100px;*/
+  /*background-color: #F8C1D4;*/
   font-size: 14pt;
 }
 label{
   color: #5C604D;
 }
 h1{
-  color: #F20056;
+
 }
 input[type=text]{
   font-size: 14pt;
