@@ -91,7 +91,7 @@ $(document).ready(function(){
     }
     $("ul li").hide();
     $("ul li").each(function(i) {
-      $(this).delay(200 * i).fadeIn().delay(9000).fadeOut(3000);
+      $(this).delay(200 * i).fadeIn();
     });
 
     event.preventDefault();
