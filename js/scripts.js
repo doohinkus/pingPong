@@ -52,7 +52,7 @@ $(document).ready(function(){
         $(".output").empty();
         count(input).forEach(function (value){
           console.log(value)
-          $(".output").append(value+ "<br>");
+          $(".output").append("<li>" + value + "</li>");
         });
 
       }else {
