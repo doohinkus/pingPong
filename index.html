@@ -9,22 +9,25 @@
   </head>
   <body>
     <div class="container">
-      <div class="panel panel-default">
+      <h1>Ping Pong</h1>
+      <p><img src = "img/pingPongPaddle.png" id ="pingPongBall" alt = "image of ping pong ball"></p>
+      <div class="panel">
         <div class="panel-body">
-          <h1>Ping Pong</h1>
           <form id="pigLatin">
             <label for="input">Enter number between 1 and 3999:</label>
             <input type="text" id="input" class="form-control" value="0"><br>
             <div class="center">
-              <button type="submit" id="submit" class="btn-success btn center">Go!</button>
-            </div>
-          </form>
-        </div>
-      </div>
+              <button type="submit" id="submit" class="btn-warning btn center">Go!</button>
+            </div><!--end center-->
+          </form><!--end form -->
+        </div><!--end panel-body-->
+      </div><!--end panel-->
       <div class="output">
-        <ul id="pingPong">
+        <ul>
         </ul>
-      </div>
-    </div>
+        <span class="error"></span>
+      </div><!--end output-->
+    </div><!--end container-->
+
   </body>
 </html>

@@ -1,20 +1,18 @@
 
 var isAcceptableInteger = function (number){
   var input = parseInt(number);
-  if (typeof(input) === "number") {
-    if (input >= 1 && input <= 3999){
-      return true;
-    } else {
-        return false;
-      }
-  } else {
-    return false;
-    }
+  console.log("input: ", input);
+  if (!isNaN(input) && (input >= 1 && input <= 3999)) {
+    return true;
+  }
+  return false;
+
 }
 
 var count = function (number){
   var output = [];
-  for (var i = 1; i <= number; i++){
+  var parsedInput = parseInt(number);
+  for (var i = 1; i <= parsedInput; i++){
     if (isDivisiblebyThree(i) && !isDivisiblebyFive(i)){
       output.push("ping");
     }else if (isDivisiblebyFive(i) && !isDivisiblebyThree(i)){
@@ -45,18 +43,18 @@ $(document).ready(function(){
 
     $("form").submit(function (event){
       var input = $("#input").val();
-      $(".output").text("");
-
+      $(".error").text("");
+      $("ul").empty();
+      console.log(isAcceptableInteger(input));
       if (isAcceptableInteger(input)){
         console.log(count (input));
-        $(".output").empty();
         count(input).forEach(function (value){
-          console.log(value)
-          $(".output").append("<li>" + value + "</li>");
+        console.log(value)
+        $("ul").append("<li>" + value + "</li>").hide().fadeIn();
         });
 
       }else {
-        $(".output").text("Please enter a number between 1 and 3999.");
+        $(".error").text("Please enter a number between 1 and 3999.");
       }
 
 

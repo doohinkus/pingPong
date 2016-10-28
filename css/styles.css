@@ -1,20 +1,43 @@
 
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 body{
   /*background-image:url("../img/big-pig.jpg");*/
   background-repeat: no-repeat;
   /*background-position: 50% 100px;*/
-  /*background-color: #F8C1D4;*/
+  background-color: #99CC00;
   font-size: 14pt;
+  color: #FFF;
+  font-family: 'Amatic SC', cursive;
 }
 label{
   color: #5C604D;
 }
-h1{
+p{
+  text-align: center;
+}
+#pingPongBall{
+  width:150px;
+  height:150px;
 
+}
+h1{
+  text-align: center;
+  font-weight: bold;
+}
+ul{
+  list-style-type: none;
+  text-align: left;
+}
+li{
+float: left;
+margin-left:1em;
 }
 input[type=text]{
   font-size: 14pt;
-  color: #A3AE7E;
+  color: #669966;
+}
+label{
+  color: #FFF;
 }
 .panel {
   background-color: rgba(255, 255, 255, 0.5);
@@ -27,6 +50,6 @@ input[type=text]{
 }
 .output{
   font-size: 24pt;
-  color:#F20056;
+  color: #FFF;
   text-align: center;
 }
