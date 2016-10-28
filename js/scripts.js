@@ -54,7 +54,7 @@ $(document).ready(function(){
         });
 
       }else {
-        $(".error").text("Please enter a number between 1 and 3999.");
+        $(".error").hide().text("Please enter a number between 1 and 3999.").fadeIn();
       }
 
 
