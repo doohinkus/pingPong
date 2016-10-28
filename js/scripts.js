@@ -13,11 +13,11 @@ var pingPong = function (number){
   var output = [];
   var parsedInput = parseInt(number);
   for (var i = 1; i <= parsedInput; i++){
-    if (isDivisiblebyThree(i) && !isDivisiblebyFive(i)){
+    if (isDivisiblebyNumber(i, 3) && !isDivisiblebyNumber(i, 5)){
       output.push("ping");
-    }else if (isDivisiblebyFive(i) && !isDivisiblebyThree(i)){
+    }else if (isDivisiblebyNumber(i, 5) && !isDivisiblebyNumber(i, 3)){
       output.push("pong");
-    }else if (isDivisiblebyFive(i) && isDivisiblebyThree(i)){
+    }else if (isDivisiblebyNumber(i, 5) && isDivisiblebyNumber(i, 3)){
       output.push("ping pong");
     }else {
       output.push(i);
@@ -27,17 +27,13 @@ var pingPong = function (number){
   return output;
 }
 
-var isDivisiblebyThree = function (number){
-  if (number % 3 === 0){
+var isDivisiblebyNumber = function (number, value){
+  if (number % value === 0){
     return true;
   }
 }
 
-var isDivisiblebyFive = function (number){
-  if (number % 5 === 0){
-    return true;
-  }
-}
+
 
 //scrolling was adapted from https://css-tricks.com/snippets/jquery/smooth-scrolling/
 var smoothScroll = function (){
@@ -68,9 +64,7 @@ $(document).ready(function(){
     $(myTarget).fadeIn();
 
   });
-  $("a.close").click(function (){
-    $(this).parent().fadeOut();
-  });
+
 
   $("form").submit(function (event){
     var input = $("#input").val();
