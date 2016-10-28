@@ -11,6 +11,12 @@ _A web application that takes a number from a user and returns a range of number
 * _Numbers divisible by 5 are replaced with "pong"._
 * _Numbers divisible by 15 are replaced with "ping-pong"_
 
+## Specifications:
+
+* _Program can take the user's number and output a list that counts up to that number._
+* _Program can take the user's number and output a list that counts up to that number and replaces numbers divisible by 3 with the word "ping"._
+* _Program can take the user's number and output a list that counts up to that number and replaces numbers divisible by 5 with the word "pong"._
+* _Program can take the user's number and output a list that counts up to that number and replaces numbers divisible by 3 and 5 with the words "ping pong"._
 ## Setup/Installation Requirements
 
 * _Clone repository._
