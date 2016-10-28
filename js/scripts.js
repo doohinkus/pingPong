@@ -9,7 +9,7 @@ var isAcceptableInteger = function (number){
 
 }
 
-var count = function (number){
+var pingPong = function (number){
   var output = [];
   var parsedInput = parseInt(number);
   for (var i = 1; i <= parsedInput; i++){
@@ -39,36 +39,59 @@ var isDivisiblebyFive = function (number){
   }
 }
 
-$(document).ready(function(){
-
-    $("form").submit(function (event){
-      var input = $("#input").val();
-      $(".error").text("");
-      $("ul").empty();
-      if (isAcceptableInteger(input)){
-        console.log(count (input));
-        count(input).forEach(function (value){
-
-        if (value === "ping"){
-          $("ul").append("<li class='ping'>" + value + "</li>");
-        }else if (value === "pong"){
-          $("ul").append("<li class='pong'>" + value + "</li>");
-        }else if (value === "ping pong"){
-          $("ul").append("<li class='pingPong'>" + value + "</li>");
-        }else{$("ul").append("<li>" + value + "</li>");}
-
-        });
-
-      }else {
-        $(".error").hide().text("Please enter a number between 1 and 3999.").fadeIn();
+//scrolling was adapted from https://css-tricks.com/snippets/jquery/smooth-scrolling/
+var smoothScroll = function (){
+  $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
       }
-      $("ul li").hide();
-      $("ul li").each(function(i) {
-        $(this).delay(100 * i).fadeIn(500);
-      });
-
-
-      event.preventDefault();
     });
+}
+
+
+
+$(document).ready(function(){
+  smoothScroll();
+  $(".secondaryContent").hide();
+  $("a").click (function (){
+    var myTarget = $(this).attr("href");
+    //console.log(hash);
+    $(".secondaryContent").hide();
+    $(myTarget).fadeIn().delay(6000).fadeOut();
+  });
+
+  $("form").submit(function (event){
+    var input = $("#input").val();
+    $(".error").text("");
+    $("ul").empty();
+
+    if (isAcceptableInteger(input)){
+      pingPong(input).forEach(function (value){
+        if (value === "ping"){
+          $("ul").append("<li class='ping shadow'>" + value + "</li>");
+        }else if (value === "pong"){
+          $("ul").append("<li class='pong shadow'>" + value + "</li>");
+        }else if (value === "ping pong"){
+          $("ul").append("<li class='pingPong shadow'>" + value + "</li>");
+        }else{$("ul").append("<li>" + value + "</li>");}
+      });
+    }else {
+      $(".error").hide().text("Please enter a number between 1 and 3999.").fadeIn();
+    }
+    $("ul li").hide();
+    $("ul li").each(function(i) {
+      $(this).delay(200 * i).fadeIn();
+    });
+
+
+    event.preventDefault();
+  });
 
 });
