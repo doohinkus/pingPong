@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -22,7 +22,7 @@
           </form><!--end form -->
         </div><!--end panel-body-->
       </div><!--end panel-->
-      <p class="shadow"><a href="#directions">Directions</a> | <a href="#examples">Examples</a> | <a href="#gitHub">GitHub</a></p>
+      <p class="shadow"><a href="#directions" class="navigation">Directions</a> | <a href="#examples" class="navigation">Examples</a> | <a href="#gitHub" class="navigation">GitHub</a></p>
       <hr />
       <div class="output">
         <ul>
@@ -37,6 +37,7 @@
         <div id="directions" class="secondaryContent">
           <h2>Directions</h2>
           <p>Enter a number from 1 to 3999, then click "Go!". The application will count up to the number that you entered, substituting the word "pong" for numbers divisible by three, the word "ping" for numbers divisible by five, and the words "ping pong" for numbers divisible by both three and five. This is a classis branching exercise intended to frustrate and teach students of code.</p>
+        
         </div><!--end directions-->
         <div id="examples" class="secondaryContent">
           <h2>Examples</h2>
@@ -53,6 +54,7 @@
               <h3>Input: 15</h3>
               <p class ="center pingPong">1 2 ping 4 pong ping 7 8 ping pong 11 ping 13 14 ping pong</p>
             </div>
+
           </div>
 
 
@@ -60,10 +62,14 @@
         <div id="gitHub" class="secondaryContent">
             <h2>Github</h2>
             <p>I'm a student at Epicodus, which means I'm constantly filling up my github repos with projects like this one. Follow me on <a href="#">gitHub</a>. I won't bite, too hard.</p>
+
         </div><!--end directions-->
       </div><!--end row-->
-    </div>
 
+    </div>
+    <footer>
+      <p><span class="glyphicon glyphicon-copyright-mark"></span> 2016 Rafael Perez</p>
+    </footer>
 
   </body>
 </html>

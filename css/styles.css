@@ -17,6 +17,7 @@ p{
   text-align: center;
 }
 
+
 h1{
   text-align: center;
   font-family: 'Bevan', cursive;
@@ -64,6 +65,10 @@ a:hover, a:link, a:active{
 }
 .secondaryContent p{
   text-align: left;
+}
+a.close{
+  text-align: center !important;
+  color: #ffee68;
 }
 .pong{
   color: #ffa268;

@@ -28,13 +28,13 @@ var pingPong = function (number){
 }
 
 var isDivisiblebyThree = function (number){
-  if (number % 3 == 0){
+  if (number % 3 === 0){
     return true;
   }
 }
 
 var isDivisiblebyFive = function (number){
-  if (number % 5 == 0){
+  if (number % 5 === 0){
     return true;
   }
 }
@@ -60,18 +60,22 @@ var smoothScroll = function (){
 $(document).ready(function(){
   smoothScroll();
   $(".secondaryContent").hide();
-  $("a").click (function (){
+  $("#directions").show();
+
+  $("a.navigation").click (function (){
     var myTarget = $(this).attr("href");
-    //console.log(hash);
     $(".secondaryContent").hide();
-    $(myTarget).fadeIn().delay(6000).fadeOut();
+    $(myTarget).fadeIn();
+
+  });
+  $("a.close").click(function (){
+    $(this).parent().fadeOut();
   });
 
   $("form").submit(function (event){
     var input = $("#input").val();
     $(".error").text("");
     $("ul").empty();
-
     if (isAcceptableInteger(input)){
       pingPong(input).forEach(function (value){
         if (value === "ping"){
@@ -87,9 +91,8 @@ $(document).ready(function(){
     }
     $("ul li").hide();
     $("ul li").each(function(i) {
-      $(this).delay(200 * i).fadeIn();
+      $(this).delay(200 * i).fadeIn().delay(9000).fadeOut(3000);
     });
-
 
     event.preventDefault();
   });
