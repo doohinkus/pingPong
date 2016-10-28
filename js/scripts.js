@@ -15,9 +15,20 @@ var isAcceptableInteger = function (number){
 var count = function (number){
   var output = [];
   for (var i = 1; i <= number; i++){
-    output.push(i);
+    if (isDivisiblebyThree(i)){
+      output.push("ping");
+    }else {
+      output.push(i);
+    }
+
   }
   return output;
+}
+
+var isDivisiblebyThree = function (number){
+  if (number % 3 == 0){
+    return true;
+  }
 }
 
 $(document).ready(function(){
@@ -25,7 +36,7 @@ $(document).ready(function(){
     $("form").submit(function (event){
       var input = $("#input").val();
       $(".output").text("");
-      
+
       if (isAcceptableInteger(input)){
         console.log(count (input));
       }else {
