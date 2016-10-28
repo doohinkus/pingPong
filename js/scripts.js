@@ -45,17 +45,17 @@ $(document).ready(function(){
       var input = $("#input").val();
       $(".error").text("");
       $("ul").empty();
-      console.log(isAcceptableInteger(input));
       if (isAcceptableInteger(input)){
         console.log(count (input));
         count(input).forEach(function (value){
-        console.log(value)
-        $("ul").append("<li>" + value + "</li>").hide().fadeIn();
+        console.log(value);
+        $("ul").append("<li>" + value + "</li>");
         });
 
       }else {
         $(".error").hide().text("Please enter a number between 1 and 3999.").fadeIn();
       }
+      $("ul").hide().fadeIn();
 
 
       event.preventDefault();
