@@ -48,14 +48,24 @@ $(document).ready(function(){
       if (isAcceptableInteger(input)){
         console.log(count (input));
         count(input).forEach(function (value){
-        console.log(value);
+
+        if (value === "ping"){
+          $("ul").append("<li class='ping'>" + value + "</li>");
+        }else if (value === "pong"){
+          $("ul").append("<li class='pong'>" + value + "</li>");
+        }else if (value === "ping pong"){
+          $("ul").append("<li class='pingPong'>" + value + "</li>");
+        }
         $("ul").append("<li>" + value + "</li>");
         });
 
       }else {
         $(".error").hide().text("Please enter a number between 1 and 3999.").fadeIn();
       }
-      $("ul").hide().fadeIn();
+      $("ul li").hide();
+      $("ul li").each(function(i) {
+        $(this).delay(100 * i).fadeIn(500);
+      });
 
 
       event.preventDefault();
