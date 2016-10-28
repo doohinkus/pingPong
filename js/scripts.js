@@ -55,8 +55,8 @@ $(document).ready(function(){
           $("ul").append("<li class='pong'>" + value + "</li>");
         }else if (value === "ping pong"){
           $("ul").append("<li class='pingPong'>" + value + "</li>");
-        }
-        $("ul").append("<li>" + value + "</li>");
+        }else{$("ul").append("<li>" + value + "</li>");}
+
         });
 
       }else {

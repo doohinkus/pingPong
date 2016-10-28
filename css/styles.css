@@ -1,11 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Bevan');
 body{
   background-image:url("../img/pingPongBackground.jpg");
   background-repeat: no-repeat;
   font-size: 14pt;
   color: #FFF;
   font-family: 'Amatic SC', cursive;
+  font-family: 'Bevan', cursive;
 }
 label{
   color: #5C604D;
@@ -20,7 +21,9 @@ p{
 }
 h1{
   text-align: center;
-  font-weight: bold;
+
+  font-family: 'Bevan', cursive;
+  font-size: 34pt;
 }
 ul{
   list-style-type: none;
@@ -36,15 +39,14 @@ input[type=text]{
 }
 label{
   color: #FFF;
-}
-.pong, .ping, .pingPong{
-  font-weight: bold;
+  font-size: 18pt;
 }
 .pong{
   color: #ffa268;
 }
 .ping{
   color: #ff687a;
+
 }
 .pingPong{
   color: #ffee68;
