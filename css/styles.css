@@ -46,12 +46,11 @@ label{
 .shadow{
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
-a, a:visited{
-  color: #ffee68;
-
-
+.navigation, a:link,a:visited {
+  color: #ffee68; !important;
+  text-decoration: none;
 }
-a:hover, a:link, a:active{
+a:hover, a:active{
   color: #fff;
   text-decoration: none;
 }

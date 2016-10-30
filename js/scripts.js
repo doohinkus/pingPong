@@ -13,12 +13,12 @@ var pingPong = function (number){
   var output = [];
   var parsedInput = parseInt(number);
   for (var i = 1; i <= parsedInput; i++){
-    if (isDivisiblebyNumber(i, 3) && !isDivisiblebyNumber(i, 5)){
+    if (isDivisibleby3(i)){
       output.push("ping");
-    }else if (isDivisiblebyNumber(i, 5) && !isDivisiblebyNumber(i, 3)){
+    }else if (isDivisibleby5(i)){
       output.push("pong");
-    }else if (isDivisiblebyNumber(i, 5) && isDivisiblebyNumber(i, 3)){
-      output.push("ping pong");
+    }else if (isDivisibleby3And5(i)){
+      output.push("ping-pong");
     }else {
       output.push(i);
     }
@@ -27,8 +27,20 @@ var pingPong = function (number){
   return output;
 }
 
-var isDivisiblebyNumber = function (number, value){
-  if (number % value === 0){
+var isDivisibleby3 = function (number){
+  if (number % 3 === 0 && !(number % 5 ===0)){
+    return true;
+  }
+}
+
+var isDivisibleby5 = function (number){
+  if (number % 5 === 0 && !(number % 3 ===0)){
+    return true;
+  }
+}
+
+var isDivisibleby3And5 = function (number){
+  if (number % 3 === 0 && number % 5 ===0){
     return true;
   }
 }
@@ -36,10 +48,15 @@ var isDivisiblebyNumber = function (number, value){
 
 
 //scrolling was adapted from https://css-tricks.com/snippets/jquery/smooth-scrolling/
-var smoothScroll = function (){
-  $('a[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+var linkBehaviors = function (){
+
+  $('a[href*="#"]:not([href="#"])').click(function(event) {
+    //hide content then fade it in
+
+
         var target = $(this.hash);
+        $(".secondaryContent").hide();
+        $(target).fadeIn();
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           $('html, body').animate({
@@ -47,23 +64,19 @@ var smoothScroll = function (){
           }, 1000);
           return false;
         }
-      }
+
+
+
+      event.preventDefault();
     });
 }
 
 
 
 $(document).ready(function(){
-  smoothScroll();
+  linkBehaviors();
   $(".secondaryContent").hide();
   $("#directions").show();
-
-  $("a.navigation").click (function (){
-    var myTarget = $(this).attr("href");
-    $(".secondaryContent").hide();
-    $(myTarget).fadeIn();
-
-  });
 
 
   $("form").submit(function (event){
@@ -76,7 +89,7 @@ $(document).ready(function(){
           $("ul").append("<li class='ping shadow'>" + value + "</li>");
         }else if (value === "pong"){
           $("ul").append("<li class='pong shadow'>" + value + "</li>");
-        }else if (value === "ping pong"){
+        }else if (value === "ping-pong"){
           $("ul").append("<li class='pingPong shadow'>" + value + "</li>");
         }else{$("ul").append("<li>" + value + "</li>");}
       });
