@@ -54,7 +54,7 @@ var smoothScroll = function (){
 
 
 $(document).ready(function(){
-  smoothScroll();
+  //smoothScroll();
   $(".secondaryContent").hide();
   $("#directions").show();
 
