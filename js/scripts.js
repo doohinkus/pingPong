@@ -13,12 +13,12 @@ var pingPong = function (number){
   var output = [];
   var parsedInput = parseInt(number);
   for (var i = 1; i <= parsedInput; i++){
-    if (isDivisiblebyNumber(i, 3) && !isDivisiblebyNumber(i, 5)){
-      output.push("ping");
-    }else if (isDivisiblebyNumber(i, 5) && !isDivisiblebyNumber(i, 3)){
-      output.push("pong");
-    }else if (isDivisiblebyNumber(i, 5) && isDivisiblebyNumber(i, 3)){
+    if (isDivisiblebyNumber(i, 15)){
       output.push("ping pong");
+    }else if (isDivisiblebyNumber(i, 5)){
+      output.push("pong");
+    }else if (isDivisiblebyNumber(i, 3)){
+      output.push("ping");
     }else {
       output.push(i);
     }
